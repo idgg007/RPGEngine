@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(RPGEngine)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+endif()
+
+if(WIN32)
+    add_definitions(-D_WINDLL -DMYLIBRARY_EXPORTS)
+endif()
+
+add_library(RPGEngine SHARED
+    World.cpp
+    Object.cpp
+    Engine.cpp
+    API.cpp
+)
+
+target_link_libraries(RPGEngine raylib)
+
+if(WIN32)
+    target_link_libraries(RPGEngine opengl32 gdi32 winmm)
+endif()
+
+if(UNIX)
+    target_link_libraries(RPGEngine pthread dl)
+endif()
+
+add_executable(PlatformerGame
+    ../PlatformerGame.cpp
+)
+
+target_link_libraries(PlatformerGame RPGEngine)
