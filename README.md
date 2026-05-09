@@ -1,3 +1,5 @@
+前言：这个项目所有代码是由Trae生成的，不保证没有bug，我只提供架构思路同时帮助AI查找部分的bug。内容中明显由很多问题比如这篇教程。~~但是我不想改（懒）~~比如说环境配置中，只要保证在windows环境中，在不考虑编译dll（引擎）的情况下，并不需要安装raylib库。同时还有一点没有提到，如果只需要使用已经编译好的dll，使用CMAKE编译时候可以删去所有带有RPGengine的行，除了`target_link_libraries(PlatformerGame RPGEngine)` 。
+
 # RPG Engine 中文使用教程
 
 ## 一、项目概述
