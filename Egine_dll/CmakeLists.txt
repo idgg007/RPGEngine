@@ -29,9 +29,3 @@ endif()
 if(UNIX)
     target_link_libraries(RPGEngine pthread dl)
 endif()
-
-add_executable(PlatformerGame
-    ../PlatformerGame.cpp
-)
-
-target_link_libraries(PlatformerGame RPGEngine)
